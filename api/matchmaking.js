@@ -1,5 +1,3 @@
-// ✅ Gemini Pro API - Configuración corregida
-
 import { createClient } from '@supabase/supabase-js';
 import fetch from 'node-fetch';
 
@@ -8,7 +6,7 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
-const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent';
+const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 export default async function handler(req, res) {
@@ -39,9 +37,9 @@ Description: \${p.description}\`
       .join("\n\n");
 
     const prompt = \`A startup has submitted the following idea:
-"""
+"\""
 \${description}
-"""
+"\""
 
 Here are real-world problems reported from different parts of the world:
 
